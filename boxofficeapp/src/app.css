@@ -1,0 +1,390 @@
+@import 'tailwindcss';
+@source "../node_modules/layerchart/**/*.{svelte,js}";
+
+@plugin "daisyui" {
+}
+
+/*
+  The default border color has changed to `currentColor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+@layer base {
+	*,
+	::after,
+	::before,
+	::backdrop,
+	::file-selector-button {
+		border-color: var(--color-gray-200, currentColor);
+	}
+}
+
+h1 {
+	@apply text-3xl;
+	@apply font-bold;
+}
+
+h2 {
+	@apply text-2xl;
+	@apply font-bold;
+}
+
+h3 {
+	@apply text-xl;
+	@apply font-semibold;
+}
+
+a {
+	@apply hover:underline;
+	@apply text-primary;
+}
+
+.btn-primary {
+	@apply text-primary-content;
+}
+
+.fill-surface-content\/5 {
+	@apply fill-base-200;
+}
+
+@plugin "daisyui/theme" {
+	name: 'godfather';
+	default: false; /* set as default */
+	prefersdark: true; /* set as default dark mode (prefers-color-scheme:dark) */
+	color-scheme: dark; /* color of browser-provided UI */
+
+	--color-base-100: rgb(3, 3, 3);
+	--color-base-200: rgb(10, 10, 10);
+	--color-base-300: rgb(20, 20, 20);
+	--color-base-content: rgb(240, 240, 240);
+	--color-primary: rgba(227, 58, 29, 1);
+	--color-primary-content: rgb(255, 255, 255);
+	--color-secondary: rgb(164, 99, 41);
+	--color-secondary-content: rgb(232, 232, 232);
+	--color-accent: rgb(198, 162, 90);
+	--color-accent-content: rgb(0, 0, 0);
+	--color-neutral: rgb(211, 207, 195);
+	--color-neutral-content: rgb(60, 55, 30);
+	--color-info: rgb(0, 123, 255);
+	--color-info-content: rgb(255, 255, 255);
+	--color-success: rgb(40, 167, 69);
+	--color-success-content: rgb(255, 255, 255);
+	--color-warning: rgb(255, 193, 7);
+	--color-warning-content: rgb(0, 0, 0);
+	--color-error: rgb(220, 53, 69);
+	--color-error-content: rgb(255, 255, 255);
+}
+
+/* jaws theme */
+@plugin "daisyui/theme" {
+	name: 'jaws';
+	default: true; /* set as default */
+	prefersdark: false; /* set as default dark mode (prefers-color-scheme:dark) */
+	color-scheme: light; /* color of browser-provided UI */
+
+	--color-base-100: rgb(247, 247, 247);
+	--color-base-200: rgb(231, 231, 231);
+	--color-base-300: rgb(211, 211, 211);
+	--color-base-content: rgb(13, 13, 13);
+	--color-primary: rgba(10, 85, 142, 1);
+	--color-primary-content: rgb(255, 255, 255);
+	--color-secondary: rgb(204, 0, 0);
+	--color-secondary-content: rgb(255, 255, 255);
+	--color-accent: rgb(255, 201, 153);
+	--color-accent-content: rgb(0, 0, 0);
+	--color-neutral: rgb(188, 188, 188);
+	--color-neutral-content: rgb(31, 31, 31);
+	--color-info: rgba(0, 103, 212, 1);
+	--color-info-content: rgb(255, 255, 255);
+	--color-success: rgba(27, 123, 50, 1);
+	--color-success-content: rgb(255, 255, 255);
+	--color-warning: rgba(227, 170, 0, 1);
+	--color-warning-content: rgb(0, 0, 0);
+	--color-error: rgba(136, 31, 41, 1);
+	--color-error-content: rgb(255, 255, 255);
+}
+
+@plugin "daisyui/theme" {
+	name: 'blade-runner';
+	default: false; /* set as default */
+	prefersdark: false; /* set as default dark mode (prefers-color-scheme:dark) */
+	color-scheme: dark; /* color of browser-provided UI */
+
+	--color-base-100: rgb(27, 27, 27);
+	--color-base-200: rgb(37, 37, 37);
+	--color-base-300: rgb(47, 47, 47);
+	--color-base-content: rgb(255, 245, 235);
+	--color-primary: rgb(0, 255, 255);
+	--color-primary-content: rgb(0, 0, 0);
+	--color-secondary: rgb(75, 0, 130);
+	--color-secondary-content: rgb(255, 255, 255);
+	--color-accent: rgb(255, 69, 0);
+	--color-accent-content: rgb(0, 0, 0);
+	--color-neutral: rgb(224, 224, 224);
+	--color-neutral-content: rgb(31, 31, 31);
+	--color-info: #00bfff;
+	--color-info-content: rgb(0, 0, 0);
+	--color-success: #00ff00;
+	--color-success-content: rgb(0, 0, 0);
+	--color-warning: #ffd700;
+	--color-warning-content: rgb(0, 0, 0);
+	--color-error: #ff005c;
+	--color-error-content: rgb(0, 0, 0);
+}
+
+@plugin "daisyui/theme" {
+	name: 'paddington';
+	default: false; /* set as default */
+	prefersdark: false; /* set as default dark mode (prefers-color-scheme:dark) */
+	color-scheme: light; /* color of browser-provided UI */
+
+	--color-base-100: rgba(206, 231, 253, 1);
+	--color-base-200: rgba(157, 217, 243, 1);
+	--color-base-300: rgba(114, 198, 232, 1);
+	--color-base-content: #000000;
+	--color-primary: #765717ff;
+	--color-primary-content: #ffffff;
+	--color-secondary: #062560;
+	--color-secondary-content: #ffffff;
+	--color-accent: #c5a993;
+	--color-accent-content: #000000;
+	--color-neutral: #e0e0e0;
+	--color-neutral-content: #000000ff;
+	--color-info: #328fedff;
+	--color-info-content: #ffffffff;
+	--color-success: #339430ff;
+	--color-success-content: #ffffffff;
+	--color-warning: #edce32ff;
+	--color-warning-content: #ffffffff;
+	--color-error: #ed4232;
+	--color-error-content: #ffffffff;
+}
+
+@plugin "daisyui/theme" {
+	name: 'three-idiots';
+	default: false; /* set as default */
+	prefersdark: false; /* set as default dark mode (prefers-color-scheme:dark) */
+	color-scheme: light; /* color of browser-provided UI */
+
+	--color-base-100: #f1efaf;
+	--color-base-200: #fec824ff;
+	--color-base-300: #e5ad07ff;
+	--color-base-content: #030000;
+	--color-primary: #116572ff;
+	--color-primary-content: #f4f4f4ff;
+	--color-secondary: #ebcabc;
+	--color-secondary-content: #2a2a2aff;
+	--color-accent: #e6f1a4;
+	--color-accent-content: #000000ff;
+	--color-neutral: #e0e0e0;
+	--color-neutral-content: #ffffffff;
+	--color-info: #097ff0;
+	--color-info-content: #ffffffff;
+	--color-success: #2fc800;
+	--color-success-content: #ffffffff;
+	--color-warning: #ede032ff;
+	--color-warning-content: #ffffffff;
+	--color-error: #f00001;
+	--color-error-content: #ffffffff;
+}
+
+@plugin "daisyui/theme" {
+	name: 'kill-bill';
+	default: false; /* set as default */
+	prefersdark: false; /* set as default dark mode (prefers-color-scheme:dark) */
+	color-scheme: light; /* color of browser-provided UI */
+
+	--color-base-100: #ffe31e;
+	--color-base-200: #e1ca1aff;
+	--color-base-300: #ceb918ff;
+	--color-base-content: #030000;
+	--color-primary: #ca1b00ff;
+	--color-primary-content: #e5e5e5ff;
+	--color-secondary: #3586ffff;
+	--color-secondary-content: #272727ff;
+	--color-accent: #ce9474;
+	--color-accent-content: #000000ff;
+	--color-neutral: #847466;
+	--color-neutral-content: #ebebebff;
+	--color-info: #48aae2;
+	--color-info-content: #343434ff;
+	--color-success: #5fbb77;
+	--color-success-content: #343434ff;
+	--color-warning: #eebf53;
+	--color-warning-content: #343434ff;
+	--color-error: #ce2e4b;
+	--color-error-content: #343434ff;
+}
+
+@plugin "daisyui/theme" {
+	name: 'scarface';
+	default: false; /* set as default */
+	prefersdark: false; /* set as default dark mode (prefers-color-scheme:dark) */
+	color-scheme: dark; /* color of browser-provided UI */
+
+	--color-base-100: #040404;
+	--color-base-200: #202020ff;
+	--color-base-300: #3d3d3dff;
+	--color-base-content: #f6f6f6;
+	--color-primary: #be2423;
+	--color-primary-content: #f4f4f4ff;
+	--color-secondary: rgba(224, 163, 137, 1);
+	--color-secondary-content: #2a2a2aff;
+	--color-accent: #fe0000ff;
+	--color-accent-content: #000000ff;
+	--color-neutral: #9d9d9d;
+	--color-neutral-content: #282828ff;
+	--color-info: #2366beff;
+	--color-info-content: #ffffffff;
+	--color-success: #42be23ff;
+	--color-success-content: #ffffffff;
+	--color-warning: #beb623ff;
+	--color-warning-content: #ffffffff;
+	--color-error: #be3223ff;
+	--color-error-content: #ffffffff;
+}
+
+@plugin "daisyui/theme" {
+	name: 'boyhood';
+	default: false; /* set as default */
+	prefersdark: false; /* set as default dark mode (prefers-color-scheme:dark) */
+	color-scheme: dark; /* color of browser-provided UI */
+
+	--color-base-100: #526120;
+	--color-base-200: #586c1eff;
+	--color-base-300: #5e7320ff;
+	--color-base-content: #fefdfe;
+	--color-primary: #84ccffff;
+	--color-primary-content: #353436ff;
+	--color-secondary: #9195b9;
+	--color-secondary-content: #2a2a2aff;
+	--color-accent: #dbb4abff;
+	--color-accent-content: #212121ff;
+	--color-neutral: #9d9d9d;
+	--color-neutral-content: #282828ff;
+	--color-info: #43a5e7ff;
+	--color-info-content: #ffffffff;
+	--color-success: #43e75eff;
+	--color-success-content: #ffffffff;
+	--color-warning: #e7d743ff;
+	--color-warning-content: #ffffffff;
+	--color-error: #ff7474ff;
+	--color-error-content: #ffffffff;
+}
+
+@plugin "daisyui/theme" {
+	name: 'a-clockwork-orange';
+	default: false; /* set as default */
+	prefersdark: false; /* set as default dark mode (prefers-color-scheme:dark) */
+	color-scheme: light; /* color of browser-provided UI */
+
+	--color-base-100: #f7f7f7;
+	--color-base-200: #e6e6e6ff;
+	--color-base-300: #cbcbcbff;
+	--color-base-content: #0d0d0f;
+	--color-primary: #d95c18ff;
+	--color-primary-content: #0e0e0e;
+	--color-secondary: #c13f38;
+	--color-secondary-content: #f3d9c1;
+	--color-accent: #ffa85dff;
+	--color-accent-content: #000000ff;
+	--color-neutral: #bcada8ff;
+	--color-neutral-content: #282828ff;
+	--color-info: #123796ff;
+	--color-info-content: #ffffffff;
+	--color-success: #179612ff;
+	--color-success-content: #ffffffff;
+	--color-warning: #879612ff;
+	--color-warning-content: #ffffffff;
+	--color-error: #962112ff;
+	--color-error-content: #ffffffff;
+}
+
+@plugin "daisyui/theme" {
+	name: 'oldboy';
+	default: false; /* set as default */
+	prefersdark: false; /* set as default dark mode (prefers-color-scheme:dark) */
+	color-scheme: dark; /* color of browser-provided UI */
+
+	--color-base-100: rgba(11, 11, 35, 1);
+	--color-base-200: rgba(19, 19, 62, 1);
+	--color-base-300: rgba(31, 31, 94, 1);
+	--color-base-content: #b5dfeb;
+	--color-primary: #e10087ff;
+	--color-primary-content: #e4e4e4ff;
+	--color-secondary: #6e4876;
+	--color-secondary-content: #fff9f3ff;
+	--color-accent: #bfe4ee;
+	--color-accent-content: #000000ff;
+	--color-neutral: #bcada8ff;
+	--color-neutral-content: #282828ff;
+	--color-info: #6f979f;
+	--color-info-content: #ffffffff;
+	--color-success: #9dbe8cff;
+	--color-success-content: #ffffffff;
+	--color-warning: #c66f24;
+	--color-warning-content: #ffffffff;
+	--color-error: #cb1c2c;
+	--color-error-content: #ffffffff;
+	--depth: 2;
+	--noise: 1;
+}
+
+@plugin "daisyui/theme" {
+	name: 'grand-budapest-hotel';
+	default: false; /* set as default */
+	prefersdark: false; /* set as default dark mode (prefers-color-scheme:dark) */
+	color-scheme: light; /* color of browser-provided UI */
+
+	--color-base-100: #f0d4e0ff;
+	--color-base-200: #cebcc4ff;
+	--color-base-300: #b8a5adff;
+	--color-base-content: #030000;
+	--color-primary: #6e421d;
+	--color-primary-content: #ecececff;
+	--color-secondary: #e09eb9;
+	--color-secondary-content: #272727ff;
+	--color-accent: #d8879c;
+	--color-accent-content: #000000ff;
+	--color-neutral: #9a8b78;
+	--color-neutral-content: #050505ff;
+	--color-info: #497783ff;
+	--color-info-content: #e9e7e7ff;
+	--color-success: #508349ff;
+	--color-success-content: #e9e7e7ff;
+	--color-warning: #9f9644ff;
+	--color-warning-content: #e9e7e7ff;
+	--color-error: #834949ff;
+	--color-error-content: #e9e7e7ff;
+}
+
+@plugin "daisyui/theme" {
+	name: 'inception';
+	default: false; /* set as default */
+	prefersdark: false; /* set as default dark mode (prefers-color-scheme:dark) */
+	color-scheme: dark; /* color of browser-provided UI */
+
+	--color-base-100: #044056;
+	--color-base-200: #064e75ff;
+	--color-base-300: #065a88ff;
+	--color-base-content: #fffafaff;
+	--color-primary: #ec2f1b;
+	--color-primary-content: #ecececff;
+	--color-secondary: #9c1becff;
+	--color-secondary-content: #ecececff;
+	--color-accent: #1b3aecff;
+	--color-accent-content: #ecececff;
+	--color-neutral: #4d6474ff;
+	--color-neutral-content: #dfdfdfff;
+	--color-info: #478fa5ff;
+	--color-info-content: #e9e7e7ff;
+	--color-success: #4aa547ff;
+	--color-success-content: #e9e7e7ff;
+	--color-warning: #ae9447ff;
+	--color-warning-content: #e9e7e7ff;
+	--color-error: #a54747ff;
+	--color-error-content: #e9e7e7ff;
+}

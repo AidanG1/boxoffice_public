@@ -1,0 +1,23 @@
+@startuml Scraping
+
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+' uncomment the following line and comment the first to use locally
+' !include C4_Container.puml' LAYOUT_TOP_DOWN()
+LAYOUT_AS_SKETCH()
+title Container diagram for Autoware Auto
+System_Ext(Vehicle, "Vehicle", "The Autonomous Vehicle")
+System_Ext(Sensors, "Sensors", "Lidar, Camera, GPS etc.")
+
+Rel(Sensors, Sensing, "Socket, Serial etc.")
+Rel(Sensing, Perception, "Sensing Data")
+Rel_Neighbor(Perception, Planning, "Surrounding Environment")
+Rel_Neighbor(Planning, Control, "Trajectory")
+Rel(Control, VehicleInterface, "Vehicle Commands")
+Rel(VehicleInterface,Control, "Steering, Velocity Feedback")
+BiRel(VehicleInterface, Vehicle, "Can, Socket, Serial")
+Rel(Sensing, Localization, "Current Position and Velocity")
+Rel(Localization,Perception, "Current Position and velocity")
+Rel(Localization,Planning, "Current Position and velocity")
+Rel(Localization, Control, "Current Position and velocity")
+Rel(VehicleInterface, Localization, "VehicleSensor")
+@enduml

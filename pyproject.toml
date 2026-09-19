@@ -1,0 +1,22 @@
+[project]
+name = "stat450"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "beautifulsoup4>=4.12.3",
+    "cloudscraper>=1.2.71",
+    "ipykernel>=6.29.5",
+    "matplotlib>=3.10.0",
+    "mplcursors>=0.6",
+    "pyqt6>=6.8.1",
+    "python-dotenv>=1.0.1",
+    "requests>=2.32.3",
+    "resend>=2.10.0",
+    "scikit-learn>=1.6.1",
+    "seaborn>=0.13.2",
+    "statsmodels>=0.14.4",
+    "supabase>=2.12.0",
+    "yt-dlp",
+]

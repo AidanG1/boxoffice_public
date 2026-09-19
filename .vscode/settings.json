@@ -1,0 +1,38 @@
+{
+  "cSpell.words": [
+    "Anora",
+    "bcolors",
+    "beamer",
+    "boxoffice",
+    "Boxofficeday",
+    "boxofficedays",
+    "castorcrew",
+    "castorcrews",
+    "cinemascore",
+    "dotenv",
+    "ENDC",
+    "figsize",
+    "imdb",
+    "lineplot",
+    "Lionsgate",
+    "lookback",
+    "mapd",
+    "MAPE",
+    "Metacritic",
+    "mpaa",
+    "Mufasa",
+    "mult",
+    "mults",
+    "OKCYAN",
+    "OKGREEN",
+    "Paddington",
+    "Postgrest",
+    "RMSE",
+    "scatterplot",
+    "tmdb",
+    "WMAPD"
+  ],
+  "files.associations": {
+    "*.css": "tailwindcss"
+  }
+}

@@ -1,0 +1,41 @@
+# Latex files
+*.aux
+*.bbl
+*.blg
+*.log
+*.out
+*.toc
+*.synctex.gz
+*.fls
+*.fdb_latexmk
+
+# Ignore PDFs created by Latex
+*.pdf
+
+__pycache__
+venv
+.venv
+
+scrape/daily_html
+scrape/detail_html
+scrape/metacritic
+
+*.zip
+
+# temporarily gitignore scrape, this is just as I am working on making it better
+boxofficeold
+peerreview
+
+.env
+.env.*
+!.env.example
+
+# JavaScript and Rust build artifacts
+node_modules/
+boxofficeapp/node_modules/
+boxofficeapp/src-tauri/target/
+boxofficeapp/src-tauri/gen/android/app/build/
+
+mults.json
+
+drafts/

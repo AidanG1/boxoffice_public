@@ -1,0 +1,1 @@
+for FILE in *.webp; do dwebp "$FILE" -o "${FILE%.*}.jpg"; done
